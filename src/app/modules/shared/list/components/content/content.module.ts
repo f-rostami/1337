@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content.component';
+import { ItemModule } from '../item/item.module';
 
 
 
@@ -9,7 +10,8 @@ import { ContentComponent } from './content.component';
     ContentComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ItemModule
   ],
   exports: [
     ContentComponent

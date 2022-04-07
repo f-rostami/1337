@@ -2,13 +2,7 @@
   class="item-list"
   [ngClass]="{ 'details-active': _layoutSrvc.getActiveLayout() === 'list' }"
 >
-  <div class="item">
-    <p>Item Content1</p>
-  </div>
-  <div class="item">
-    <p>Item Content2</p>
-  </div>
-  <div class="item">
-    <p>Item Content3</p>
+  <div class="item" *ngFor="let item of items">
+    <app-item ></app-item>
   </div>
 </div>

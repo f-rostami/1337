@@ -6,6 +6,7 @@ import { ContentModule } from './components/content/content.module';
 
 
 
+
 @NgModule({
   declarations: [
     ListComponent
@@ -13,10 +14,12 @@ import { ContentModule } from './components/content/content.module';
   imports: [
     CommonModule,
     HeaderModule,
-    ContentModule
+    ContentModule,
+
   ],
   exports: [
     ListComponent
-  ]
+  ],
+
 })
 export class ListModule { }

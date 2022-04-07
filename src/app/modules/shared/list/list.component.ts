@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LayoutService } from './services/layout.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  @Input() itemType: string;
+
+  constructor(private _layoutSrvc: LayoutService) {
+  }
+
+  items: { name: string }[] = [
+    { name: 'farbod' },
+    { name: 'sorour' },
+    { name: 'farshad' },
+    { name: 'akbar' }
+  ]
 
   ngOnInit(): void {
+    this._layoutSrvc.setCmptType(this.itemType);
   }
 
 }

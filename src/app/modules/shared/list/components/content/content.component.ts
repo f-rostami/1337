@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LayoutService } from '../../services/layout.service';
 
 @Component({
@@ -6,11 +6,10 @@ import { LayoutService } from '../../services/layout.service';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent implements OnInit {
+export class ContentComponent {
+
+  @Input() items: { name: string }[];
 
   constructor(public _layoutSrvc: LayoutService) { }
-
-  ngOnInit(): void {
-  }
 
 }
