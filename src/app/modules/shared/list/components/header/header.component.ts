@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  activeLayout: string = 'grid';
+
+  constructor(private _layoutSrvc: LayoutService) { }
 
   ngOnInit(): void {
+    this._layoutSrvc.setActiveLayout(this.activeLayout)
+  }
+
+  toggleActiveLayout(layout: string) {
+    this._layoutSrvc.setActiveLayout(layout);
+    this.activeLayout = layout;
   }
 
 }

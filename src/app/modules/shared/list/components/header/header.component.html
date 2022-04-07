@@ -1,10 +1,28 @@
 <div class="header">
   <div class="display-style-btns">
-    <button type="button" id="grid-active-btn">
-      <mat-icon aria-hidden="false" aria-label="grid view" >grid_on</mat-icon>
+    <button
+      type="button"
+      id="grid-active-btn"
+      (click)="toggleActiveLayout('grid')"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="grid view"
+        [ngClass]="{ 'active-btn': activeLayout === 'grid' }"
+        >grid_on</mat-icon
+      >
     </button>
-    <button type="button" id="details-active-btn">
-      <mat-icon aria-hidden="false" aria-label="list view">list</mat-icon>
+    <button
+      type="button"
+      id="details-active-btn"
+      (click)="toggleActiveLayout('list')"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="list view"
+        [ngClass]="{ 'active-btn': activeLayout === 'list' }"
+        >list</mat-icon
+      >
     </button>
   </div>
 </div>
