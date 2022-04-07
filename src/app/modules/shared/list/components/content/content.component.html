@@ -3,6 +3,6 @@
   [ngClass]="{ 'details-active': _layoutSrvc.getActiveLayout() === 'list' }"
 >
   <div class="item" *ngFor="let item of items">
-    <app-item ></app-item>
+    <app-item [item]="item"></app-item>
   </div>
 </div>

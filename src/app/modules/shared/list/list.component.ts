@@ -9,16 +9,17 @@ import { LayoutService } from './services/layout.service';
 export class ListComponent implements OnInit {
 
   @Input() itemType: string;
+  @Input() items: any[];
 
   constructor(private _layoutSrvc: LayoutService) {
   }
 
-  items: { name: string }[] = [
-    { name: 'farbod' },
-    { name: 'sorour' },
-    { name: 'farshad' },
-    { name: 'akbar' }
-  ]
+  // items: { name: string }[] = [
+  //   { name: 'farbod' },
+  //   { name: 'sorour' },
+  //   { name: 'farshad' },
+  //   { name: 'akbar' }
+  // ]
 
   ngOnInit(): void {
     this._layoutSrvc.setCmptType(this.itemType);

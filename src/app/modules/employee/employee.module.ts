@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EmployeeComponent } from './employee.component';
 import { RouterModule } from '@angular/router';
 import { ListModule } from '../shared/list/list.module';
+import { EmployeeCardModule } from './components/employee-card/employee-card.module';
 
 
 
@@ -16,7 +17,8 @@ import { ListModule } from '../shared/list/list.module';
       path: '',
       component: EmployeeComponent
     }]),
-    ListModule
+    ListModule,
+    EmployeeCardModule
   ]
 })
 export class EmployeeModule { }

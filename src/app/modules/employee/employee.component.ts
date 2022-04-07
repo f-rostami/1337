@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IEmployee } from './models/employee.interface';
 import { EmployeeService } from './services/employee.service';
 
 @Component({
@@ -8,11 +9,17 @@ import { EmployeeService } from './services/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
+
+  items: IEmployee[] = [];
+
   constructor(private _employeeSrvc: EmployeeService) { }
 
   ngOnInit(): void {
     this._employeeSrvc.getRandomEmployees()
-      .subscribe(console.log)
+      .subscribe({
+        next: ((employees: IEmployee[]) => this.items = employees),
+        error: console.log
+      })
   }
 
 }

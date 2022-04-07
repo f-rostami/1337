@@ -1,1 +1,4 @@
-<p>employee-card works!</p>
+<div *ngIf="employee; else noData">{{ employee.name }}</div>
+<ng-template #noData>
+  No Employee Data
+</ng-template>

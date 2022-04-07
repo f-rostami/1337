@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { LayoutService } from '../../services/layout.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { LayoutService } from '../../services/layout.service';
 })
 export class ItemComponent implements AfterViewInit {
 
-  @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
+  @Input() item: any;
+  @ViewChild('entry', {  static: false,read: ViewContainerRef }) entry: ViewContainerRef;
 
   constructor(
     private _resolver: ComponentFactoryResolver,
@@ -16,8 +17,10 @@ export class ItemComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit(): void {
-    const factory = this._resolver.resolveComponentFactory(this._layoutSrvc.getComponentType())
-    this.entry.createComponent(factory)
+    const factory = this._resolver.resolveComponentFactory<any>(this._layoutSrvc.getComponentType());
+    const createdCmpt = this.entry.createComponent(factory);
+    createdCmpt.instance.employee = this.item;
+    createdCmpt.changeDetectorRef.detectChanges();
   }
 
 }

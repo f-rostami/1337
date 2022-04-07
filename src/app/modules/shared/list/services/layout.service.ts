@@ -29,7 +29,7 @@ export class LayoutService {
     this.cmptType = cmptTypeName;
   }
 
-  getComponentType() {
+  getComponentType(): typeof EmptyComponent | typeof EmployeeCardComponent {
     const tp = this.cmpts.find(x => x.name === this.cmptType);
     if (tp)
       return tp.type
