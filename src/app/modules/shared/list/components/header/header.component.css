@@ -1,0 +1,32 @@
+.display-style-btns {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #fff;
+  padding: 16px 0;
+  border-radius: 5px;
+}
+
+.display-style-btns button {
+  color: var(--primary-color);
+  border: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 8px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.display-style-btns button mat-icon {
+  font-size: 30px;
+}
+
+.display-style-btns button:hover {
+  color: var(--secondary-color);
+}
+
+.active-btn {
+  color: var(--secondary-color);
+}
