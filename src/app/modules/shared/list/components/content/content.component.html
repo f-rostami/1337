@@ -1,4 +1,7 @@
-<div class="item-list ">
+<div
+  class="item-list"
+  [ngClass]="{ 'details-active': _layoutSrvc.getActiveLayout() === 'list' }"
+>
   <div class="item">
     <p>Item Content1</p>
   </div>
