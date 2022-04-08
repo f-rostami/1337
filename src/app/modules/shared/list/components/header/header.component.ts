@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { LayoutService } from '../../services/layout.service';
 
 @Component({
@@ -9,6 +9,10 @@ import { LayoutService } from '../../services/layout.service';
 export class HeaderComponent implements OnInit {
 
   activeLayout: string = 'grid';
+  activeSortDirection: string = '';
+
+  @Output() onSort = new EventEmitter<string>();
+
 
   constructor(private _layoutSrvc: LayoutService) { }
 
@@ -19,6 +23,20 @@ export class HeaderComponent implements OnInit {
   toggleActiveLayout(layout: string) {
     this._layoutSrvc.setActiveLayout(layout);
     this.activeLayout = layout;
+  }
+
+  sort() {
+
+    if (this.activeSortDirection === '') {
+      this.activeSortDirection = 'asc';
+    } else if (this.activeSortDirection === 'asc') {
+      this.activeSortDirection = 'desc'
+    } else {
+      this.activeSortDirection = ''
+    }
+
+    this.onSort.next(this.activeSortDirection);
+
   }
 
 }

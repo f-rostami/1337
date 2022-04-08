@@ -1,9 +1,28 @@
 <div class="header">
   <div class="display-style-btns">
+    <i class="far fa-sort"></i>
+    <button
+      type="button"
+      class="sort-btn"
+      (click)="sort()"
+      matTooltip="Sort by Name and Office"
+    >
+      <i class="fas fa-sort" *ngIf="activeSortDirection === ''"></i>
+
+      <i
+        class="fas fa-sort-amount-down"
+        *ngIf="activeSortDirection === 'asc'"
+      ></i>
+      <i
+        class="fas fa-sort-amount-up"
+        *ngIf="activeSortDirection === 'desc'"
+      ></i>
+    </button>
     <button
       type="button"
       id="grid-active-btn"
       (click)="toggleActiveLayout('grid')"
+      matTooltip="Grid View"
     >
       <mat-icon
         aria-hidden="false"
@@ -16,6 +35,7 @@
       type="button"
       id="details-active-btn"
       (click)="toggleActiveLayout('list')"
+      matTooltip="List View"
     >
       <mat-icon
         aria-hidden="false"

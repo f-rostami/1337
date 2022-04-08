@@ -5,9 +5,9 @@ import { LayoutService } from './modules/shared/list/services/layout.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  host: {
-    '(window:resize)': 'onResize($event)'
-  }
+  // host: {
+  //   '(window:resize)': 'onResize($event)'
+  // }
 })
 export class AppComponent {
   title = '1337';

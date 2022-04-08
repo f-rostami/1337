@@ -1,1 +1,5 @@
-<app-list [itemType]="'EmployeeCard'" [items]="items"></app-list>
+<app-list
+  [itemType]="'EmployeeCard'"
+  [items]="items"
+  (onSort)="sortDt($event)"
+></app-list>

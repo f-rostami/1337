@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IEmployee } from '../models/employee.interface';
+import { ISortOptions } from '../models/sort-options.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,11 @@ export class EmployeeService {
 
   }
 
+  sortEmployees(sortOptions: ISortOptions[]) {
+    const sortedEmployees = [...this.employees];
+    return this._sortBy(sortedEmployees, sortOptions);
+  }
+
   private _shuffle(array: any[]): any[] {
     let crntIndx = array.length, rndIndx;
 
@@ -49,5 +55,15 @@ export class EmployeeService {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  private _sortBy(array: any[], options: ISortOptions[]) {
+    let compareStr = '';
+    options.forEach(x => {
+      compareStr !== '' && (compareStr += " || ");
+      compareStr += `${x.direction === 'asc' ? 'a' : 'b'}.${[x.field]}.localeCompare(${x.direction === 'asc' ? 'b' : 'a'}.${[x.field]})`;
+    })
+
+    return array.sort((a, b) => eval(compareStr))
   }
 }

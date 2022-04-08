@@ -30,3 +30,12 @@
 .active-btn {
   color: var(--secondary-color);
 }
+
+.sort-btn i{
+  font-size: 25px;
+}
+
+::ng-deep .mat-tooltip {
+  font-size: 15px;
+  white-space: pre;
+}
