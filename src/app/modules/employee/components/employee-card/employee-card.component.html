@@ -1,52 +1,61 @@
-<div *ngIf="itemDt; else noData">
-  <div class="container" [ngClass]="_layoutSrvc.getActiveLayout()">
-    <div>
-      <img [src]="itemDt.imagePortraitUrl ? itemDt.imagePortraitUrl : 'assets/images/avatar.png'" alt="" srcset="" />
+<div
+  class="container"
+  [ngClass]="_layoutSrvc.getActiveLayout()"
+  *ngIf="itemDt; else noData"
+>
+  <div>
+    <!-- <img [src]="itemDt.imagePortraitUrl ? itemDt.imagePortraitUrl : 'assets/images/avatar.png'" alt="" srcset="" /> -->
+    <img [src]="'assets/images/avatar.png'" alt="" srcset="" />
+  </div>
+  <div class="info">
+    <div class="primitive-info">
+      <h2 class="name">{{ itemDt.name }}</h2>
+      <h3 class="office">{{ itemDt.office }}</h3>
     </div>
-    <div class="info">
-      <div class="primitive-info">
-        <h2 class="name">{{itemDt.name}}</h2>
-        <h3 class="office">{{itemDt.office}}</h3>
+
+    <div class="contact-info">
+      <div class="email">
+        <mat-icon>email</mat-icon>
+        <span>{{ itemDt.email }}</span>
       </div>
-
-      <div class="contact-info">
-        <div class="email">
-          <mat-icon>email</mat-icon>
-          <span>{{itemDt.email}}</span>
-        </div>
-        <div class="phone" >
-          <mat-icon>phone</mat-icon>
-          <span>{{itemDt.phoneNumber ? itemDt.phoneNumber : '000-000-0000'}}</span>
-        </div>
-      </div>
-
-      <p class="main-text">
-        {{itemDt.mainText}}
-      </p>
-
-      <div class="links">
-        <div>
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
-        </div>
-        <div>
-          <i class="fab fa-stack-overflow"></i>
-          <span>StackOverflow</span>
-        </div>
-        <div>
-          <i class="fab fa-linkedin"></i>
-          <span>LinkedIn</span>
-        </div>
-        <div>
-          <i class="fab fa-twitter"></i>
-          <span>Twitter</span>
-        </div>
+      <div class="phone">
+        <mat-icon>phone</mat-icon>
+        <span>{{
+          itemDt.phoneNumber ? itemDt.phoneNumber : "000-000-0000"
+        }}</span>
       </div>
     </div>
 
-    <div class="long-main-text">
-      {{itemDt.mainText}}
+    <p
+      class="main-text"
+      style="height:7em; overflow: hidden"
+      [innerHtml]="itemDt.mainText && (itemDt.mainText | truncate: 125:true)"
+      *ngIf="itemDt.mainText"
+    ></p>
+
+    <div class="links">
+      <div>
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </div>
+      <div>
+        <i class="fab fa-stack-overflow"></i>
+        <span>StackOverflow</span>
+      </div>
+      <div>
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </div>
+      <div>
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+      </div>
     </div>
   </div>
+
+  <div class="long-main-text" *ngIf="itemDt.mainText">
+    <p [innerHtml]="itemDt.mainText && (itemDt.mainText | truncate: 550)"></p>
+  </div>
 </div>
+
 <ng-template #noData> No Employee Data </ng-template>

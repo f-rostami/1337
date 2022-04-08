@@ -14,10 +14,10 @@ export class AppComponent {
 
   constructor(private _layoutSrvc: LayoutService) { }
 
-  onResize(event: any) {
-    event.target.innerWidth < 678
-      ? this._layoutSrvc.setActiveLayout('list')
-      : this._layoutSrvc.setActiveLayout('grid');
+  // onResize(event: any) {
+  //   event.target.innerWidth < 678
+  //     ? this._layoutSrvc.setActiveLayout('grid')
+  //     : this._layoutSrvc.setActiveLayout('list');
 
-  }
+  // }
 }

@@ -6,12 +6,12 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px; */
 
+
 }
 
 .grid {
   grid-template-columns: 1fr;
-  /* grid-template-rows: 1fr; */
-  justify-items: center;
+  /* justify-items: center; */
 }
 
 
@@ -37,9 +37,15 @@
 }
 
 .info {
-  display: grid;
+  /* display: grid;
   align-items: center;
-  row-gap: 1px;
+  row-gap: 1px; */
+
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100%;
+
 
 }
 .list .info{

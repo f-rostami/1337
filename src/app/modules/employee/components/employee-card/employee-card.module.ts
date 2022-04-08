@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EmployeeCardComponent } from './employee-card.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -12,7 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    PipesModule
   ],
   exports: [
     EmployeeCardComponent
