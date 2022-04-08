@@ -8,7 +8,7 @@ import { LayoutService } from '../../services/layout.service';
 })
 export class HeaderComponent implements OnInit {
 
-  activeLayout: string = 'list';
+  activeLayout: string = 'grid';
 
   constructor(private _layoutSrvc: LayoutService) { }
 
