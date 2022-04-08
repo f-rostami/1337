@@ -1,4 +1,67 @@
-<div *ngIf="employee; else noData">{{ employee.name }}</div>
+<!-- <div *ngIf="itemDt; else noData">{{ itemDt.name }}</div>
 <ng-template #noData>
   No Employee Data
 </ng-template>
+
+ -->
+
+<div class="container" [ngClass]="_layoutSrvc.getActiveLayout()">
+  <div>
+    <img src="../../../../../assets/images/test.jpg" alt="" srcset="" />
+  </div>
+  <div class="info">
+    <div class="primitive-info">
+      <h2 class="name">Firstname Lastname</h2>
+      <h3 class="office">Stockholm</h3>
+    </div>
+
+    <div class="contact-info">
+      <div class="email">
+        <mat-icon>email</mat-icon>
+        <span>user@info.com</span>
+      </div>
+      <div class="phone">
+        <mat-icon>phone</mat-icon>
+        <span>989125043844</span>
+      </div>
+    </div>
+
+    <p class="main-text">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis ducimus
+      saepe quibusdam!...
+    </p>
+
+    <div class="links">
+      <div>
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </div>
+      <div>
+        <i class="fab fa-stack-overflow"></i>
+        <span>StackOverflow</span>
+      </div>
+      <div>
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </div>
+      <div>
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="long-main-text">
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere sed
+      excepturi quasi obcaecati neque cupiditate quae nulla ab in aliquid
+      laboriosam voluptate quos perspiciatis, facilis, perferendis esse quis!
+      Eaque, recusandae.
+      <br />
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere sed
+      excepturi quasi obcaecati neque cupiditate quae nulla ab in aliquid
+      laboriosam voluptate quos perspiciatis, facilis, perferendis esse quis!
+      Eaque, recusandae.
+    </p>
+  </div>
+</div>

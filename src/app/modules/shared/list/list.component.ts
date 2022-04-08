@@ -14,13 +14,6 @@ export class ListComponent implements OnInit {
   constructor(private _layoutSrvc: LayoutService) {
   }
 
-  // items: { name: string }[] = [
-  //   { name: 'farbod' },
-  //   { name: 'sorour' },
-  //   { name: 'farshad' },
-  //   { name: 'akbar' }
-  // ]
-
   ngOnInit(): void {
     this._layoutSrvc.setCmptType(this.itemType);
   }

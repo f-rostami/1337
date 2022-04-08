@@ -1,4 +1,5 @@
 import { AfterContentInit, AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { LayoutService } from 'src/app/modules/shared/list/services/layout.service';
 import { IEmployee } from '../../models/employee.interface';
 
 @Component({
@@ -6,11 +7,11 @@ import { IEmployee } from '../../models/employee.interface';
   templateUrl: './employee-card.component.html',
   styleUrls: ['./employee-card.component.css']
 })
-export class EmployeeCardComponent  {
+export class EmployeeCardComponent {
 
-  employee: IEmployee;
+  itemDt: IEmployee;
 
-  constructor() { }
+  constructor(public _layoutSrvc: LayoutService) { }
 
 
 

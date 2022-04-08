@@ -19,7 +19,7 @@ export class ItemComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const factory = this._resolver.resolveComponentFactory<any>(this._layoutSrvc.getComponentType());
     const createdCmpt = this.entry.createComponent(factory);
-    createdCmpt.instance.employee = this.item;
+    createdCmpt.instance.itemDt = this.item;
     createdCmpt.changeDetectorRef.detectChanges();
   }
 

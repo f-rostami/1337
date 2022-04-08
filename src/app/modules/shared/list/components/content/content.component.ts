@@ -8,7 +8,7 @@ import { LayoutService } from '../../services/layout.service';
 })
 export class ContentComponent {
 
-  @Input() items: { name: string }[];
+  @Input() items: any[];
 
   constructor(public _layoutSrvc: LayoutService) { }
 
