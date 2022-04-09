@@ -11,6 +11,7 @@
         matInput
         autocomplete="off"
         [(ngModel)]="filterInput.value"
+        [name]="filterInput.field"
       />
     </mat-form-field>
     <button (click)="applyFilter()" mat-raised-button color="primary">

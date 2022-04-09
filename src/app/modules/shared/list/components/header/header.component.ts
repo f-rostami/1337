@@ -16,18 +16,6 @@ export class HeaderComponent implements OnInit {
   @Output() onFilter = new EventEmitter<boolean>();
   @Input() filters: any[];
 
-  // filterOptions: IFilterOption[] = [
-  //   {
-  //     field: 'name',
-  //     value: ''
-  //   },
-  //   // {
-  //   //   field: 'office',
-  //   //   value: this.filter
-  //   // }
-  // ]
-
-
   constructor(private _layoutSrvc: LayoutService) { }
 
   ngOnInit(): void {

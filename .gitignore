@@ -48,3 +48,7 @@ Thumbs.db
 
 #db
 /api/db.json
+
+#env
+src/environments/environment.prod.ts
+
