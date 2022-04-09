@@ -52,7 +52,8 @@ export class EmployeeComponent implements OnInit {
         field: 'office'
       }
     ]
-    this.items = this._employeeSrvc.sortEmployees(sortOption);
+    // this.items = this._employeeSrvc.sortEmployees(sortOption);
+    this.items = this._employeeSrvc._sortBy([...this.items],sortOption);
   }
 
 

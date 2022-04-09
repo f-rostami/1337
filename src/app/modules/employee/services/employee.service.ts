@@ -15,10 +15,7 @@ export class EmployeeService {
 
   employees: IEmployee[];
 
-
   constructor(private _http: HttpClient) { }
-
-
 
   //get employees between 5 to 7 individual
   getRandomEmployees(): Observable<IEmployee[]> {
@@ -66,7 +63,7 @@ export class EmployeeService {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  private _sortBy(array: any[], options: ISortOptions[]) {
+   _sortBy(array: any[], options: ISortOptions[]) {
     let compareStr = '';
     options.forEach(x => {
       compareStr !== '' && (compareStr += " || ");
