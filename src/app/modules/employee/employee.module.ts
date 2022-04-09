@@ -4,6 +4,7 @@ import { EmployeeComponent } from './employee.component';
 import { RouterModule } from '@angular/router';
 import { ListModule } from '../shared/list/list.module';
 import { EmployeeCardModule } from './components/employee-card/employee-card.module';
+import { FormsModule } from '@angular/forms';
 
 
 

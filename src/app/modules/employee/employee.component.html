@@ -1,5 +1,7 @@
 <app-list
   [itemType]="'EmployeeCard'"
   [items]="items"
+  [filterOptions]="filterOptions"
   (onSort)="sortDt($event)"
+  (onApplyFilter)="applyFilter($event)"
 ></app-list>

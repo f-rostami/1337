@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IFilterOption } from '../../employee/models/filter-option.interface';
 import { LayoutService } from './services/layout.service';
 
 @Component({
@@ -10,7 +11,9 @@ export class ListComponent implements OnInit {
 
   @Input() itemType: string;
   @Input() items: any[];
+  @Input() filterOptions: IFilterOption[];
   @Output() onSort = new EventEmitter<string>();
+  @Output() onApplyFilter = new EventEmitter<boolean>();
 
   constructor(private _layoutSrvc: LayoutService) {
   }
@@ -21,6 +24,10 @@ export class ListComponent implements OnInit {
 
   sortHandle(event: any) {
     this.onSort.next(event);
+  }
+
+  onFilter(event: any) {
+    this.onApplyFilter.next(event)
   }
 
 }

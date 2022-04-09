@@ -1,2 +1,6 @@
-<app-header (onSort)="sortHandle($event)"></app-header>
+<app-header
+  (onSort)="sortHandle($event)"
+  [filters]="filterOptions"
+  (onFilter)="onFilter($event)"
+></app-header>
 <app-content [items]="items"></app-content>

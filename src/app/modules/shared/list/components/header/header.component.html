@@ -1,4 +1,22 @@
 <div class="header">
+  <div *ngIf="filters" class="filter-section">
+    <mat-form-field
+      class="example-full-width"
+      appearance="outline"
+      *ngFor="let filterInput of filters"
+    >
+      <mat-label>Filter By {{ filterInput.field }}</mat-label>
+      <input
+        type="text"
+        matInput
+        autocomplete="off"
+        [(ngModel)]="filterInput.value"
+      />
+    </mat-form-field>
+    <button (click)="applyFilter()" mat-raised-button color="primary">
+      Apply
+    </button>
+  </div>
   <div class="display-style-btns">
     <i class="far fa-sort"></i>
     <button

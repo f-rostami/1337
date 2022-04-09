@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { filter, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IEmployee } from '../models/employee.interface';
-import { ISortOptions } from '../models/sort-options.interface';
+import { IFilterOption } from '../models/filter-option.interface';
+import { ISortOptions } from '../models/sort-option.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,7 @@ export class EmployeeService {
 
   }
 
+  //sort-options: sort on which property in which direction (asc/desc)
   sortEmployees(sortOptions: ISortOptions[]) {
     const sortedEmployees = [...this.employees];
     return this._sortBy(sortedEmployees, sortOptions);
@@ -66,4 +68,19 @@ export class EmployeeService {
 
     return array.sort((a, b) => eval(compareStr))
   }
+
+
+
+
+  _filterBy(array: any[], options: IFilterOption[]) {
+    let filterStr = '';
+    options.forEach(x => {
+      filterStr !== '' && (filterStr += " && ");
+      filterStr += `_x.${x.field}.toLowerCase().includes('${x.value}')`
+    })
+    return array.filter(_x => eval(filterStr))
+  }
+
+
+
 }

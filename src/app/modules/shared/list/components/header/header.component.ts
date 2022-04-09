@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IFilterOption } from 'src/app/modules/employee/models/filter-option.interface';
 import { LayoutService } from '../../services/layout.service';
 
 @Component({
@@ -12,6 +13,19 @@ export class HeaderComponent implements OnInit {
   activeSortDirection: string = '';
 
   @Output() onSort = new EventEmitter<string>();
+  @Output() onFilter = new EventEmitter<boolean>();
+  @Input() filters: any[];
+
+  // filterOptions: IFilterOption[] = [
+  //   {
+  //     field: 'name',
+  //     value: ''
+  //   },
+  //   // {
+  //   //   field: 'office',
+  //   //   value: this.filter
+  //   // }
+  // ]
 
 
   constructor(private _layoutSrvc: LayoutService) { }
@@ -37,6 +51,10 @@ export class HeaderComponent implements OnInit {
 
     this.onSort.next(this.activeSortDirection);
 
+  }
+
+  applyFilter() {
+    this.onFilter.next(true);
   }
 
 }
