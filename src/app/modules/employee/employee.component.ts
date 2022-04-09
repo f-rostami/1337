@@ -13,7 +13,17 @@ export class EmployeeComponent implements OnInit {
 
 
   items: IEmployee[] = [];
-  filter: string;
+  filterOptions: IFilterOption[] = [
+    {
+      field: 'name',
+      value: ''
+    },
+    {
+      field: 'office',
+      value: ''
+    }
+  ];
+
 
   constructor(private _employeeSrvc: EmployeeService) { }
 
@@ -26,6 +36,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   sortDt(event: any) {
+
+
     if (event === '') {
       this.items = this._employeeSrvc.employees;
       return;
@@ -43,44 +55,9 @@ export class EmployeeComponent implements OnInit {
     this.items = this._employeeSrvc.sortEmployees(sortOption);
   }
 
-  filterOptions: IFilterOption[] = [
-    {
-      field: 'name',
-      value: ''
-    },
-    {
-      field: 'office',
-      value: ''
-    }
-  ]
 
-  // filterHandle() {
-  //   const filterOptions: IFilterOption[] = [
-  //     {
-  //       field: 'name',
-  //       value: this.filter
-  //     },
-  //     {
-  //       field: 'office',
-  //       value: this.filter
-  //     }
-  //   ]
-  //   console.log(this._employeeSrvc._filterBy(this.items, filterOptions))
-  // }
 
   applyFilter(event: boolean) {
-    // let hasValFilter = false;
-    // this.filterOptions.forEach(x => {
-    //   if (x.value !== '') {
-    //     hasValFilter = true;
-    //   }
-    // })
-
-    // if (!hasValFilter) {
-    //   this.items = this._employeeSrvc.employees;
-    //   return;
-    // }
-
     if (event) {
       this.items = this._employeeSrvc._filterBy(this._employeeSrvc.employees, this.filterOptions);
     }

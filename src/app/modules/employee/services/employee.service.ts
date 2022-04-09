@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter, map } from 'rxjs';
+import { catchError, filter, map, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IEmployee } from '../models/employee.interface';
 import { IFilterOption } from '../models/filter-option.interface';
@@ -15,13 +15,20 @@ export class EmployeeService {
 
   employees: IEmployee[];
 
+
   constructor(private _http: HttpClient) { }
 
 
+
   //get employees between 5 to 7 individual
-  getRandomEmployees() {
+  getRandomEmployees(): Observable<IEmployee[]> {
     return this._http.get(`${this.baseUrl}/employees`)
       .pipe(
+        catchError(err => {
+          console.log('error caught in service');
+          console.log(err);
+          return throwError(err)
+        }),
         map((response: any) => {
           const shuffledEmployees = this._shuffle(response);
           this.employees = shuffledEmployees.slice(0, this._getRandomInt(5, 7));
@@ -68,9 +75,6 @@ export class EmployeeService {
 
     return array.sort((a, b) => eval(compareStr))
   }
-
-
-
 
   _filterBy(array: any[], options: IFilterOption[]) {
     let filterStr = '';
