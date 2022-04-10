@@ -53,14 +53,14 @@ export class EmployeeComponent implements OnInit {
       }
     ]
     // this.items = this._employeeSrvc.sortEmployees(sortOption);
-    this.items = this._employeeSrvc._sortBy([...this.items],sortOption);
+    this.items = this._employeeSrvc.sortBy([...this.items],sortOption);
   }
 
 
 
   applyFilter(event: boolean) {
     if (event) {
-      this.items = this._employeeSrvc._filterBy(this._employeeSrvc.employees, this.filterOptions);
+      this.items = this._employeeSrvc.filterBy(this._employeeSrvc.employees, this.filterOptions);
     }
   }
 

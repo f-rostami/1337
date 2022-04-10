@@ -28,7 +28,7 @@ export class EmployeeService {
         }),
         map((response: any) => {
           const shuffledEmployees = this._shuffle(response);
-          this.employees = shuffledEmployees.slice(0, this._getRandomInt(5, 7));
+          this.employees = shuffledEmployees.slice(0, this._getRandomInt(15, 30));
           return this.employees;
         })
       )
@@ -38,7 +38,7 @@ export class EmployeeService {
   //sort-options: sort on which property in which direction (asc/desc)
   sortEmployees(sortOptions: ISortOptions[]) {
     const sortedEmployees = [...this.employees];
-    return this._sortBy(sortedEmployees, sortOptions);
+    return this.sortBy(sortedEmployees, sortOptions);
   }
 
   private _shuffle(array: any[]): any[] {
@@ -63,7 +63,7 @@ export class EmployeeService {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-   _sortBy(array: any[], options: ISortOptions[]) {
+   sortBy(array: any[], options: ISortOptions[]) {
     let compareStr = '';
     options.forEach(x => {
       compareStr !== '' && (compareStr += " || ");
@@ -73,7 +73,7 @@ export class EmployeeService {
     return array.sort((a, b) => eval(compareStr))
   }
 
-  _filterBy(array: any[], options: IFilterOption[]) {
+  filterBy(array: any[], options: IFilterOption[]) {
     let filterStr = '';
     options.forEach(x => {
       filterStr !== '' && (filterStr += " && ");

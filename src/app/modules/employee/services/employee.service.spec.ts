@@ -36,7 +36,7 @@ describe("EmployeeService", () => {
   });
 
   it("should sort employees by 'name' in desc", () => {
-    const sortedEmployees = employeeService._sortBy(
+    const sortedEmployees = employeeService.sortBy(
       [...EMPLOYEES],
       [{
         field: 'name',

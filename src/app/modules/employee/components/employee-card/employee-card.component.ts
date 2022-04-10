@@ -1,5 +1,6 @@
 import { AfterContentInit, AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { LayoutService } from 'src/app/modules/shared/list/services/layout.service';
+import { environment } from 'src/environments/environment';
 import { IEmployee } from '../../models/employee.interface';
 
 @Component({
@@ -8,10 +9,12 @@ import { IEmployee } from '../../models/employee.interface';
   styleUrls: ['./employee-card.component.css']
 })
 export class EmployeeCardComponent {
-
+  productMode: boolean = false;
   itemDt: IEmployee;
 
-  constructor(public _layoutSrvc: LayoutService) { }
+  constructor(public _layoutSrvc: LayoutService) {
+    this.productMode = environment.production
+  }
 
 
 

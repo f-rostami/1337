@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:dev": "ng build --watch --deploy-url /1337/ --base-href /1337/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "api":"json-server api/db.json --routes api/routes.json --no-cors=false"

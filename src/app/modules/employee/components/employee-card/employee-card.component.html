@@ -4,8 +4,18 @@
   *ngIf="itemDt; else noData"
 >
   <div>
-    <!-- <img [src]="itemDt.imagePortraitUrl ? itemDt.imagePortraitUrl : 'assets/images/avatar.png'" alt="" srcset="" /> -->
-    <img [src]="'assets/images/avatar.png'" alt="" srcset="" />
+    <ng-container *ngIf="productMode">
+      <img
+        [src]="
+          itemDt.imagePortraitUrl
+            ? itemDt.imagePortraitUrl
+            : 'assets/images/avatar.png'
+        "
+      />
+    </ng-container>
+    <ng-container *ngIf="!productMode">
+      <img [src]="'assets/images/avatar.png'" />
+    </ng-container>
   </div>
   <div class="info">
     <div class="primitive-info">
@@ -28,9 +38,8 @@
 
     <p
       class="main-text"
-      style="height:7em; overflow: hidden"
+      style="height: 7em; overflow: hidden"
       [innerHtml]="itemDt.mainText && (itemDt.mainText | truncate: 125:true)"
-      *ngIf="itemDt.mainText"
     ></p>
 
     <div class="links">
